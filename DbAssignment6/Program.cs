@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 
@@ -10,6 +11,12 @@ namespace DbAssignment6
         //Main Method
         static void Main(string[] args)
         {
+            BusinessMethods businessMethods = new BusinessMethods();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            businessMethods.CalculatePermits();
+
+            List<Veichle> veichle = new List<Veichle>();
 
             //ConnectionString which creates the path to the database
             string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Owner\Desktop\COLLEGE\.NET\Veichles.accdb";
@@ -17,8 +24,8 @@ namespace DbAssignment6
             string Query = "SELECT * FROM Veichles";
             string Query1 = "UPDATE Veichles set Veichle_Model = 'Nissan' WHERE Veichle_Model = 'Ford'";
             string Query2 = "DELETE from Veichles WHERE Owner = 'Mary Murphy'";
-            string Query3 = "INSERT INTO Veichles(Student_ID,Veichle_Model, Registration, Owner, Apartment) VALUES ('16','SmartCar', '598473254', 'Finula McGowan', '20B')";
-            
+            //string Query3 = "INSERT INTO Veichles(Veichle_Model, Registration, Owner, Apartment) VALUES ('16','SmartCar', '598473254', 'Finula McGowan', '20B')";
+
             //new OLEDB connection
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
@@ -73,19 +80,19 @@ namespace DbAssignment6
                     }
 
                     //Command to execute our last Query which is an insert Query 
-                    OleDbCommand Command = new OleDbCommand(Query3, connection);
-                    Command.ExecuteNonQuery();
+                    /* OleDbCommand Command = new OleDbCommand(Query3, connection);
+                     Command.ExecuteNonQuery();
 
-                    using (OleDbDataReader rdr = com.ExecuteReader())
-                    {
-                        //loop to traverse and print to console
-                        while (rdr.Read())
-                        {
-                            Console.WriteLine(rdr["Veichles"].ToString());
-                        }
-                    }
+                     using (OleDbDataReader rdr = com.ExecuteReader())
+                     {
+                         //loop to traverse and print to console
+                         while (rdr.Read())
+                         {
+                             Console.WriteLine(rdr["Veichles"].ToString());
+                         }
+                     }
+                     */
 
-                   
 
                 }
                 //exception Handling
@@ -96,6 +103,9 @@ namespace DbAssignment6
 
             }
 
+
+
         }
     }
 }
+
