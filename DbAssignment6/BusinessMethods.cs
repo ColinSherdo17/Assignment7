@@ -64,6 +64,7 @@ namespace DbAssignment6
                 }
             }
 
+
             Console.WriteLine("Expired Parking Permits:" + " " + expiredCount);
             Console.WriteLine("Valid Parking Permits:" + " " + ValidCount);
         }
