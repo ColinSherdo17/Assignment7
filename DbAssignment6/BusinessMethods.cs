@@ -28,13 +28,7 @@ namespace DbAssignment6
 
                 while (reader.Read())
                 {
-                    Console.WriteLine(reader[0].ToString());
-                    Console.WriteLine(reader[1].ToString());
-                    Console.WriteLine(reader[2].ToString());
-                    Console.WriteLine(reader[3].ToString());
-                    Console.WriteLine(reader[4].ToString());
-                    Console.WriteLine(reader[5].ToString());
-                    Console.WriteLine(reader[6].ToString());
+                    Console.WriteLine("{0},{1},{2},{3},{4},{5},{6}", reader["Student_ID"].ToString(), reader["Veichle_Model"].ToString(), reader["Registration"].ToString(), reader["Owner"].ToString(), reader["Apartment"].ToString(), reader["Permit"].ToString(), reader["Fees"].ToString());
 
                     veichle.Add(new Veichle()
                     {

@@ -40,12 +40,12 @@ namespace DbAssignment6
                     //DataReader to read the data returned from the command and executes it
                     using (OleDbDataReader reader = cmd.ExecuteReader())
                     {
-                        Console.WriteLine("----Original Data------");
+                        //Console.WriteLine("----Original Data------");
 
 
                         while (reader.Read())
                         {
-                            Console.WriteLine("{0},{1},{2},{3},{4}", reader["Student_ID"].ToString(), reader["Veichle_Model"].ToString(), reader["Registration"].ToString(), reader["Owner"].ToString(), reader["Apartment"].ToString());
+                            //Console.WriteLine("{0},{1},{2},{3},{4}", reader["Student_ID"].ToString(), reader["Veichle_Model"].ToString(), reader["Registration"].ToString(), reader["Owner"].ToString(), reader["Apartment"].ToString());
 
                         }
                     }
