@@ -41,8 +41,10 @@ namespace DbAssignment6
                         Permit = DateTime.Parse(reader[5].ToString()),
                         Fees = double.Parse(reader[6].ToString()),
                     });
+
+                    Console.WriteLine();
                 }
-                return veichle;
+                return veichle; 
             }
         }
         public void CalculatePermits()
@@ -50,6 +52,7 @@ namespace DbAssignment6
             int expiredCount = 0;
             int ValidCount = 0;
             veichle = BusinessMethods.ValidPermitCount();
+            Console.WriteLine("--------Valid And Expired Permits------");
             foreach (Veichle v in veichle)
             {
 
@@ -67,13 +70,14 @@ namespace DbAssignment6
 
             Console.WriteLine("Expired Parking Permits:" + " " + expiredCount);
             Console.WriteLine("Valid Parking Permits:" + " " + ValidCount);
+            Console.WriteLine();
         }
 
         public static bool ExpiredPermits(DateTime Permit)
         {
            
                 DateTime Expired = Permit.AddMonths(6);
-                if (Expired > DateTime.Now)
+                if (Expired < DateTime.Now)
                 {
                     return true;
                 }
@@ -83,5 +87,85 @@ namespace DbAssignment6
                 }
             
         }
+
+        public void changePermit()
+        {
+            int Pending = 0;
+            int NewPermit = 0;
+            Console.WriteLine("--------Reallocated Permits------");
+            foreach (Veichle b in veichle)
+            {
+
+                if (reallocatePermit(b.Permit, b.Fees) == true)
+                {
+                    NewPermit++;
+                    Console.Write(b.Owner.ToString() + " : " + "Permit issued\n");
+
+                }
+                else
+                {
+                    Pending++;
+                    Console.Write(b.Owner.ToString() + " : " + "Pending Fees\n");
+                }
+                
+
+
+            }
+            Console.WriteLine();
+
+            
+           
+            
+        }
+
+        public static bool reallocatePermit(DateTime Permit, Double Fees)
+        {
+            DateTime NewPermit = DateTime.Now;
+            Double Pending = Fees;
+
+            if (NewPermit > Permit.AddMonths(6) && Pending == 0)
+            {
+                return true;
+            }
+            else if(NewPermit < Permit.AddMonths(6) && Pending == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public double AdditionalFees(double Fees)
+        {
+            double premium = 0.1;
+            double NewFees = (Fees * premium);
+
+            if (Fees > 0)
+            {
+                Fees = Fees + NewFees;
+                return Fees;
+            }
+            else
+            {
+               return Fees;
+            }
+            
+        }
+        public void ApplyCharges()
+        {
+            Console.WriteLine("--------Owners with 10% added Premium------");
+
+            foreach (Veichle c in veichle)
+            {
+               
+                    Console.WriteLine(c.Owner.ToString() + ":" + AdditionalFees(c.Fees).ToString());         
+                
+            }
+
+        }
+       
     }
 }

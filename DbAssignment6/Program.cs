@@ -15,6 +15,8 @@ namespace DbAssignment6
             Console.WriteLine("");
             Console.WriteLine("");
             businessMethods.CalculatePermits();
+            businessMethods.changePermit();
+            businessMethods.ApplyCharges();
 
             List<Veichle> veichle = new List<Veichle>();
 
@@ -23,7 +25,7 @@ namespace DbAssignment6
             //String Variables as queries to be executed on the db
             string Query = "SELECT * FROM Veichles";
             string Query1 = "UPDATE Veichles set Veichle_Model = 'Nissan' WHERE Veichle_Model = 'Ford'";
-            string Query2 = "DELETE from Veichles WHERE Owner = 'Mary Murphy'";
+            string Query2 = "DELETE from Veichles WHERE Owner = 'Finula McGowan'";
             //string Query3 = "INSERT INTO Veichles(Veichle_Model, Registration, Owner, Apartment) VALUES ('16','SmartCar', '598473254', 'Finula McGowan', '20B')";
 
             //new OLEDB connection
