@@ -6,7 +6,7 @@ namespace DbAssignment6
 {
     public class Veichle
     {
-
+        //Creating the Veichle Object based on the Database
         public int Student_ID { get; set; }
         public string Veichle_Model { get; set; }
         public string Registration { get; set; }
