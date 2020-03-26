@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DbAssignment6
 {
-    class Veichle
+    public class Veichle
     {
 
         public int Student_ID { get; set; }

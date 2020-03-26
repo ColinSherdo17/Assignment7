@@ -4,9 +4,10 @@ using System.Text;
 using System.Data.OleDb;
 
 
+
 namespace DbAssignment6
 {
-    class BusinessMethods
+    public class BusinessMethods
     {
         static List<Veichle> veichle = new List<Veichle>();
         public static List<Veichle> ValidPermitCount()
@@ -157,7 +158,6 @@ namespace DbAssignment6
         public void ApplyCharges()
         {
             Console.WriteLine("--------Owners with 10% added Premium------");
-
             foreach (Veichle c in veichle)
             {
                

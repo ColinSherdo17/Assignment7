@@ -6,7 +6,7 @@ using System.Data.OleDb;
 
 namespace DbAssignment6
 {
-    class Program
+    public class Program
     {
         //Main Method
         static void Main(string[] args)
